@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from .factorizer import Factorizer
+
 
 def get_factor_string(n, factors):
     s = "{}: "
