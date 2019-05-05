@@ -14,7 +14,7 @@ class Factorizer(object):
         for prime in self.prime_generator:
             factors.append(0)
 
-            while (n % prime == 0) and (n > 1):
+            while (n % prime == 0):
                 factors[-1] += 1
                 n = n // prime
 
