@@ -12,18 +12,16 @@ def get_factor_string(n, factors):
 
 
 def main():
-    factor_string = get_factor_string(6, [1, 1])
+    limit = 100
 
-    print(factor_string)
+    factorizer = Factorizer()
 
-    # limit = 100
+    for n in range(2, limit + 1):
+        factors = factorizer.factor(n)
 
-    # factorizer = Factorizer()
+        s = get_factor_string(n, factors)
 
-    # for n in range(2, limit + 1):
-    #     factors = factorizer.factor(n)
-
-    #     print_factors(n, factors)
+        print(s)
 
 if __name__ == '__main__':
     main()
