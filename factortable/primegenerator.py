@@ -4,7 +4,7 @@ class PrimeGenerator(object):
     _known_primes = [_first_prime, _first_prime + 1]
 
     def __init__(self):
-        self.i = 0
+        self.reset()
 
     def next(self):
         if self.i == len(PrimeGenerator._known_primes):
@@ -31,4 +31,4 @@ class PrimeGenerator(object):
         return True
 
     def reset(self):
-        pass
+        self.i = 0
