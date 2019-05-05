@@ -6,6 +6,8 @@ import argparse
 
 from .factorizer import Factorizer
 
+# TODO: implmement print_sorted_by_factor_count
+
 
 def main():
     global args
@@ -57,6 +59,13 @@ def print_sorted_by_n():
 
 
 def print_sorted_by_factor_count():
+    global table
+
+    table.sort(key=lambda n: len(n))
+
+    for i in range(len(table[-1]), 1):
+        table.sort(key=lambda n: n[i])
+
     print("TODO")
 
 if __name__ == '__main__':
