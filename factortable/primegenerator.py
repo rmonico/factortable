@@ -6,7 +6,10 @@ class PrimeGenerator(object):
     def __init__(self):
         self.reset()
 
-    def next(self):
+    def __iter__(self):
+        return self
+
+    def __next__(self):
         if self.i == len(PrimeGenerator._known_primes):
             PrimeGenerator._known_primes.append(self._calculate_next_prime())
 

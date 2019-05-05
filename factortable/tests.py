@@ -21,25 +21,25 @@ class PrimeGeneratorTests(unittest.TestCase):
     def test_prime_generation(self):
         generator = primegenerator.PrimeGenerator()
 
-        self.assertEqual(generator.next(), 2)
-        self.assertEqual(generator.next(), 3)
-        self.assertEqual(generator.next(), 5)
-        self.assertEqual(generator.next(), 7)
-        self.assertEqual(generator.next(), 11)
-        self.assertEqual(generator.next(), 13)
-        self.assertEqual(generator.next(), 17)
-        self.assertEqual(generator.next(), 19)
-        self.assertEqual(generator.next(), 23)
+        self.assertEqual(generator.__next__(), 2)
+        self.assertEqual(generator.__next__(), 3)
+        self.assertEqual(generator.__next__(), 5)
+        self.assertEqual(generator.__next__(), 7)
+        self.assertEqual(generator.__next__(), 11)
+        self.assertEqual(generator.__next__(), 13)
+        self.assertEqual(generator.__next__(), 17)
+        self.assertEqual(generator.__next__(), 19)
+        self.assertEqual(generator.__next__(), 23)
 
     def test_reset(self):
         generator = primegenerator.PrimeGenerator()
 
-        generator.next()
-        generator.next()
+        generator.__next__()
+        generator.__next__()
 
         generator.reset()
 
-        self.assertEqual(generator.next(), 2)
+        self.assertEqual(generator.__next__(), 2)
 
 
 if __name__ == '__main__':
