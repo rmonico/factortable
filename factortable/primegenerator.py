@@ -29,3 +29,6 @@ class PrimeGenerator(object):
                 return False
 
         return True
+
+    def reset(self):
+        pass

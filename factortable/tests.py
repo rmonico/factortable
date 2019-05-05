@@ -31,5 +31,16 @@ class PrimeGeneratorTests(unittest.TestCase):
         self.assertEqual(generator.next(), 19)
         self.assertEqual(generator.next(), 23)
 
+    def test_reset(self):
+        generator = primegenerator.PrimeGenerator()
+
+        generator.next()
+        generator.next()
+
+        generator.reset()
+
+        self.assertEqual(generator.next(), 2)
+
+
 if __name__ == '__main__':
     unittest.main()
