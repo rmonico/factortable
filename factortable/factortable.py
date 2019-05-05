@@ -14,7 +14,7 @@ def get_factor_string(n, factors):
 
 
 def main():
-    limit = 100
+    limit = 101
 
     factorizer = Factorizer()
 
