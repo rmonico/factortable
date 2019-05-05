@@ -1,6 +1,40 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import argparse
+
 
 from .factorizer import Factorizer
+
+
+def main():
+    global args
+    global table
+
+    args = parse_command_line()
+
+    factorizer = Factorizer()
+
+    table = []
+
+    for n in range(2, args.limit + 1):
+        factors = factorizer.factor(n)
+
+        table.append(factors)
+
+    if args.sort_key == "n":
+        print_sorted_by_n()
+    else:
+        print_sorted_by_factor_count()
+
+
+def parse_command_line():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("-k", "--sort-key", choices=["n", "factor_count"], default="n")
+    parser.add_argument("-l", "--limit", type=int, default=101, help="Limit to generate factor table")
+
+    return parser.parse_args()
 
 
 def get_factor_string(n, factors):
@@ -13,17 +47,17 @@ def get_factor_string(n, factors):
     return s.format(n, *factors)
 
 
-def main():
-    limit = 101
+def print_sorted_by_n():
+    global table
 
-    factorizer = Factorizer()
-
-    for n in range(2, limit + 1):
-        factors = factorizer.factor(n)
-
-        s = get_factor_string(n, factors)
+    for n in range(len(table)):
+        s = get_factor_string(n + 2, table[n])
 
         print(s)
+
+
+def print_sorted_by_factor_count():
+    print("TODO")
 
 if __name__ == '__main__':
     main()
